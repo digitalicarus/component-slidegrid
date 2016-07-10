@@ -1,0 +1,99 @@
+slide-grid {
+	viewportWidth = 200px;
+	headerHeight  = 50px;
+	cellHeight    = 50px;
+
+	box-sizing: border-box;
+	* {
+		box-sizing: border-box;
+	} 
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
+	slide-grid-nav {
+		// prevent child margin collapse / not part of parent
+		display: inline-block; 
+		width: 100%;
+	}
+
+	slide-grid-main {
+		display: block;
+		width: 100%;
+		height: 100%;
+
+		position: relative;
+
+		slide-grid-head, slide-grid-body {
+			display: block;
+		}
+
+		slide-grid-head {
+			height: headerHeight;
+			border-bottom: 1px solid black;
+
+			grid-cell {
+				align-items: flex-end;
+			}
+		}
+
+		slide-grid-body {
+			height: "calc(100% - %s)" % headerHeight;
+			overflow-y: auto;
+			overflow-x: hidden;
+		}
+
+		grid-cell {
+			display: flex;
+			align-items: center;
+			height: cellHeight;
+		} 
+
+		slide-grid-row {
+			display: flex;
+			left: 50%;
+			margin-left: -(viewportWidth / 2); // half viewport
+			position: relative;
+			align-items: center;
+
+
+			slide-grid-gutter {
+				display: flex;
+				position: absolute;
+				top: 0;
+				height: cellHeight;
+				align-items: center;
+
+				&:first-child {
+					transform: translateX(-100%);
+				}
+				&:last-child {
+					left: 200px;
+				}
+			}
+
+			slide-grid-viewport {
+				display: block;
+				width: 200px;
+				overflow: hidden;
+
+				slide-grid-panel-set {
+					display: flex;
+					transition: transform .3s ease-in-out;
+
+					slide-grid-panel {
+						flex-grow: 1;
+						display: flex;
+						width: 100%;
+						justify-content: space-around;
+					}
+				}
+			}
+		}
+	}
+}
+ 

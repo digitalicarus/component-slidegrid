@@ -1,0 +1,21 @@
+{
+  "name": "bonusexp",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./build.js",
+    "start": "python -m SimpleHTTPServer"
+  },
+  "author": "digitalicarus",
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.9.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
+    "browserify": "~13.0.1",
+    "minimist": "~1.2.0",
+    "stylus": "^0.54.5",
+    "watch": "~0.19.1"
+  }
+}
